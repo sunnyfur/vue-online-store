@@ -1,5 +1,5 @@
 <template>
-  <h1>Категория товаров</h1>
+  <h1 class="h1">Категория товаров</h1>
   <div class="categories">
     <CategoryCard
       v-for="category in categories"
@@ -14,7 +14,6 @@ import services from '@/api/services';
 import CategoryCard from '@/components/CategoryCard.vue';
 import router from '@/router/router';
 export default {
-  name: 'MainPage',
   data() {
     return {
       categories: [],

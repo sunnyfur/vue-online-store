@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: 'CardView',
+  name: 'CategoryCard',
   props: {
     category: {
       type: Object,
@@ -34,5 +34,6 @@ export default {
 }
 .category__title {
   margin: 0;
+  font-size: 24px;
 }
 </style>

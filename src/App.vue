@@ -1,11 +1,13 @@
 <template>
-  <div class="app"><layout-view /></div>
+  <div class="app"><BasePage /></div>
 </template>
 
 <script>
-import LayoutView from './views/LayoutView.vue';
+import BasePage from './views/BasePage.vue';
 
-export default { components: { LayoutView } };
+export default {
+  components: { BasePage },
+};
 </script>
 
 <style>
@@ -19,12 +21,7 @@ body {
   background-color: #e5e5e5;
   box-sizing: border-box;
   color: #272727;
-  margin-top: 60px;
+
   min-height: 100vh;
-}
-.container {
-  max-width: 1200px;
-  padding: 0 25px;
-  margin: 0 auto;
 }
 </style>
