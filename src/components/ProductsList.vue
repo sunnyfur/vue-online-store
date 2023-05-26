@@ -73,6 +73,7 @@ export default {
 @media (max-width: 600px) {
   .product {
     width: 100%;
+    font-size: 1rem;
   }
 }
 
@@ -83,28 +84,36 @@ export default {
 }
 .product__category {
   color: #979797;
-  font-size: 14px;
+  font-size: 0.875em;
   margin: 4px;
 }
 .product__name {
-  font-size: 20px;
+  font-size: 1.25em;
 
   margin: 9px;
-  line-height: 24px;
 }
 .product__comment {
-  font-size: 16px;
-  line-height: 20px;
   margin: 9px;
 }
 .product__price {
-  font-size: 26px;
-  line-height: 24px;
+  font-size: 1.625em;
+  line-height: 1.5em;
   margin: 15px;
   font-weight: 600;
 }
 .product .button_common {
   width: 212px;
   height: 40px;
+}
+@media (max-width: 600px) {
+  .product {
+    font-size: 0.8rem;
+  }
+  .product .button_common {
+    width: 80%;
+    height: 30px;
+    font-size: 1em;
+    padding: 5px;
+  }
 }
 </style>

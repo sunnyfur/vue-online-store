@@ -51,5 +51,8 @@ export default {
     height: auto;
     max-width: inherit;
   }
+  .category__title {
+    font-size: 16px;
+  }
 }
 </style>

@@ -127,7 +127,7 @@ export default {
   border: 0;
   outline: none;
   position: relative;
-  padding: 12px 18px;
+  padding: 12px 30px 12px 12px;
   box-sizing: border-box;
   word-break: break-all;
 }
@@ -180,7 +180,7 @@ export default {
     position: relative;
   }
   .search__select .search__input {
-    padding: 5px;
+    padding: 5px 35px 5px 5px;
   }
   .search__list {
     font-size: 14px;
