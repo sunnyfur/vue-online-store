@@ -99,7 +99,17 @@ export default {
 
 .category-page__page {
   display: flex;
+
   gap: 34px;
+}
+.category-page__title a {
+  display: flex;
+}
+.category-page__title img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  margin: auto;
 }
 
 .subCategories {
@@ -108,6 +118,14 @@ export default {
   padding: 0;
   margin: 0;
 }
+@media (max-width: 900px) {
+  .category-page__page {
+    flex-wrap: wrap;
+  }
+  .subCategories {
+    width: 100%;
+  }
+}
 .subCategories .active {
   background-color: #e9eef3;
 }
@@ -115,7 +133,7 @@ export default {
   margin: 0;
   cursor: pointer;
   border-bottom: #e9eef3 solid 1px;
-  height: 40px;
+  min-height: 40px;
   box-sizing: border-box;
   padding: 8px 12px;
 }

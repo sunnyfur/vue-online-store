@@ -53,6 +53,7 @@ export default {
   margin: 0;
   padding: 0;
 }
+
 .product {
   margin: 0;
   width: 276px;
@@ -62,13 +63,17 @@ export default {
   grid-template-columns: 1fr;
   align-items: center;
 
-  /* flex-direction: column; */
   justify-items: center;
   text-align: center;
-  /* align-items: center; */
+
   background-color: #fff;
   box-shadow: 0px 2px 10px rgba(151, 151, 151, 0.2);
   border-radius: 0px 0px 5px 5px;
+}
+@media (max-width: 600px) {
+  .product {
+    width: 100%;
+  }
 }
 
 .product__image {

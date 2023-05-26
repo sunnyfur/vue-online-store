@@ -11,11 +11,15 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600&display=swap');
 body {
   margin: 0;
 }
+* {
+  font-family: 'Futura PT', 'Mulish', Helvetica, Arial, sans-serif;
+}
 .app {
-  font-family: Futura PT, Helvetica, Arial, sans-serif;
+  font-family: 'Futura PT', 'Mulish', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #e5e5e5;

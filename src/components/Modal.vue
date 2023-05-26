@@ -33,7 +33,10 @@ export default {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   display: flex;
+  padding: 15px;
+  box-sizing: border-box;
 }
+
 .modal__content {
   margin: auto;
   background-color: white;
@@ -45,6 +48,17 @@ export default {
   display: flex;
   padding: 1rem;
   box-sizing: border-box;
+}
+@media (max-width: 900px) {
+  .modal__content {
+    width: 100%;
+    min-width: inherit;
+  }
+}
+@media (max-width: 600px) {
+  .modal__content {
+    padding: 40px 5px;
+  }
 }
 .button_close {
   position: absolute;

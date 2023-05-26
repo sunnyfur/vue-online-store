@@ -6,6 +6,7 @@
       >
       <div class="search__select">
         <input
+          class="search__input"
           type="text"
           id="search"
           placeholder="Например, Санкт-Петербург"
@@ -104,6 +105,7 @@ export default {
   position: relative;
   align-self: flex-start;
 }
+
 .search__label {
   font-size: 20px;
   font-weight: 600;
@@ -119,7 +121,7 @@ export default {
   bottom: 0;
   transform: translateY(100%);
 }
-.search__select input {
+.search__select .search__input {
   height: 48px;
   width: 100%;
   border: 0;
@@ -127,6 +129,7 @@ export default {
   position: relative;
   padding: 12px 18px;
   box-sizing: border-box;
+  word-break: break-all;
 }
 .search__select .button_close {
   width: 12px;
@@ -159,5 +162,33 @@ export default {
 .search__list::-webkit-scrollbar-thumb {
   border-radius: 5px;
   background-color: rgba(151, 151, 151, 0.3);
+}
+@media (max-width: 600px) {
+  .search__form {
+    flex-direction: column;
+  }
+  .search__wrapper {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .search__label {
+    font-size: 14px;
+  }
+  .search__select {
+    transform: none;
+    position: relative;
+  }
+  .search__select .search__input {
+    padding: 5px;
+  }
+  .search__list {
+    font-size: 14px;
+  }
+  .search__form .button_common {
+    width: 100%;
+    height: inherit;
+    font-size: 12px;
+  }
 }
 </style>

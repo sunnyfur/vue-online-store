@@ -55,5 +55,6 @@ export default {
   display: flex;
   flex-wrap: wrap;
   gap: 22px;
+  justify-content: space-between;
 }
 </style>

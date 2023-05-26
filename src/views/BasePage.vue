@@ -1,6 +1,6 @@
 <template>
   <Header v-model:city_id="city_id" @changeCity="handleChangeCity" />
-  <main class="container">
+  <main class="container main">
     <router-view v-model:city_id="city_id" />
   </main>
   <Modal v-model:isShow="dialogVisible">
@@ -47,6 +47,10 @@ export default {
   max-width: 1200px;
   padding: 0 25px;
   margin: 0 auto;
+  box-sizing: border-box;
+}
+.main {
+  padding-bottom: 5rem;
 }
 .button_common {
   background: linear-gradient(270deg, #ffa800 0%, #ff6f00 60.2%);
@@ -90,5 +94,16 @@ export default {
   font-size: 44px;
   line-height: 44px;
   font-weight: 600;
+}
+@media (max-width: 900px) {
+  .h1 {
+    font-size: 38px;
+  }
+}
+@media (max-width: 600px) {
+  .h1 {
+    font-size: 22px;
+    line-height: 22px;
+  }
 }
 </style>
