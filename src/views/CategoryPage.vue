@@ -1,33 +1,36 @@
 <template>
-  <div class="category-page__title">
-    <router-link :to="{ name: 'main' }"
-      ><img src="@/assets/svg/arrow.svg"
-    /></router-link>
-    <h1 class="h1">{{ titleCategory }}</h1>
-  </div>
+  <div v-if="isLoadingCards || isLoadingCategories">Идет загрузка..</div>
+  <div v-else>
+    <div class="category-page__title">
+      <router-link :to="{ name: 'main' }"
+        ><img src="@/assets/svg/arrow.svg"
+      /></router-link>
+      <h1 class="h1">{{ titleCategory }}</h1>
+    </div>
 
-  <div class="category-page__page">
-    <aside>
-      <ul class="subCategories">
-        <li
-          @click="handleClick()"
-          class="subCategory"
-          :class="`${!subSlug ? 'active' : ''}`"
-        >
-          Все продукты
-        </li>
-        <li
-          v-for="subCategory in subCategories"
-          :key="subCategory.id"
-          @click="handleClick(subCategory.slug)"
-          class="subCategory"
-          :class="`${subCategory.slug === subSlug ? 'active' : ''}`"
-        >
-          {{ subCategory.name }}
-        </li>
-      </ul>
-    </aside>
-    <ProductsList :cardList="products" />
+    <div class="category-page__page">
+      <aside>
+        <ul class="subCategories">
+          <li
+            @click="handleClick()"
+            class="subCategory"
+            :class="`${!subSlug ? 'active' : ''}`"
+          >
+            Все продукты
+          </li>
+          <li
+            v-for="subCategory in subCategories"
+            :key="subCategory.id"
+            @click="handleClick(subCategory.slug)"
+            class="subCategory"
+            :class="`${subCategory.slug === subSlug ? 'active' : ''}`"
+          >
+            {{ subCategory.name }}
+          </li>
+        </ul>
+      </aside>
+      <ProductsList :cardList="products" />
+    </div>
   </div>
 </template>
 <script>
@@ -41,6 +44,8 @@ export default {
       titleCategory: '',
       subCategories: [],
       products: [],
+      isLoadingCards: false,
+      isLoadingCategories: false,
     };
   },
   props: {
@@ -59,6 +64,7 @@ export default {
   },
   methods: {
     getCategory(newCity) {
+      this.isLoadingCategories = true;
       services
         .getCatalog(newCity)
         .then((response) => {
@@ -68,13 +74,19 @@ export default {
           this.titleCategory = currCategory.name;
           this.subCategories = currCategory.children;
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err))
+        .finally(() => (this.isLoadingCategories = false));
     },
     getProducts(newCity) {
-      services.getProducts(newCity, this.slug).then((response) => {
-        const products = response.data.products;
-        this.products = products;
-      });
+      this.isLoadingCards = false;
+      services
+        .getProducts(newCity, this.slug)
+        .then((response) => {
+          const products = response.data.products;
+          this.products = products;
+        })
+        .catch((err) => console.error(err))
+        .finally(() => (this.isLoadingCards = false));
     },
     handleClick(subCategory) {
       router.push({

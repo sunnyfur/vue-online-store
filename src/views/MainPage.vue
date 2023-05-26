@@ -1,6 +1,7 @@
 <template>
   <h1 class="h1">Категория товаров</h1>
-  <div class="categories">
+  <div v-if="isLoading">Идет загрузка..</div>
+  <div v-else class="categories">
     <CategoryCard
       v-for="category in categories"
       :key="category.slug"
@@ -17,6 +18,7 @@ export default {
   data() {
     return {
       categories: [],
+      isLoading: false,
     };
   },
   props: {
@@ -33,12 +35,14 @@ export default {
 
   methods: {
     getCatalog(newCity) {
+      this.isLoading = true;
       services
         .getCatalog(newCity)
         .then((response) => {
           this.categories = response.data.tags;
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err))
+        .finally(() => (this.isLoading = false));
     },
     clickCategory(slug) {
       router.push({ name: 'category', params: { slug: slug } });
